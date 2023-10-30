@@ -9,13 +9,12 @@ const networkConfig = {
 }
 
 const developmentChains = [31337]
-const DECIMALS = 8
-const INITITAL_ANSWER = 20001e8
-
+const DECIMALS = 18
+const INITITAL_ANSWER = 20001e18
 
 module.exports = {
     networkConfig,
     developmentChains,
     INITITAL_ANSWER,
-    DECIMALS
+    DECIMALS,
 }
