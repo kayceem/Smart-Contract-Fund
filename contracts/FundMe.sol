@@ -24,7 +24,7 @@ contract FundMe {
     using PriceConverter for uint256;
 
     address private immutable i_owner;
-    uint256 public constant MIN_USD = 1 * 1e18;
+    uint256 public constant MIN_USD = 50 * 1e18;
     address[] private s_funders;
     mapping(address => uint256) private s_addressToAmount;
     AggregatorV3Interface public s_priceFeed;
@@ -73,11 +73,7 @@ contract FundMe {
 
     function withdraw() public verifyOwner {
         address[] memory funders = s_funders;
-        for (
-            uint256 funderIndex = 0;
-            funderIndex < funders.length;
-            funderIndex++
-        ) {
+        for (uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++) {
             s_addressToAmount[funders[funderIndex]] = 0;
         }
         s_funders = new address[](0);
